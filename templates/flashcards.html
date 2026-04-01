@@ -1,0 +1,334 @@
+{% extends "base.html" %}
+
+{% block title %}Flashcards - Presente Histórico{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="section-title">Flashcards de Estudio</h1>
+    <p class="lead">Aprende los conceptos clave del presente histórico con estas tarjetas interactivas</p>
+    
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Filtros</h5>
+                    <div class="mb-3">
+                        <label class="form-label">Categoría:</label>
+                        <select class="form-select" id="filtroCategoria">
+                            <option value="todas">Todas las categorías</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Dificultad:</label>
+                        <select class="form-select" id="filtroDificultad">
+                            <option value="todas">Todas</option>
+                            <option value="fácil">Fácil</option>
+                            <option value="media">Media</option>
+                            <option value="difícil">Difícil</option>
+                        </select>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <h6>Estadísticas</h6>
+                        <div class="progress mb-2">
+                            <div id="progresoFlashcards" class="progress-bar" style="width: 0%">0%</div>
+                        </div>
+                        <p id="statsFlashcards" class="small text-muted">Vistas: 0/50</p>
+                        <p id="statsDominadas" class="small text-muted">Dominadas: 0/50</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Consejos</h5>
+                    <ul class="small">
+                        <li>Haz clic en la tarjeta para voltearla</li>
+                        <li>Usa los botones para marcar progreso</li>
+                        <li>Flechas para navegar</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0" id="flashcardCategoria">Flashcard</h5>
+                        <span class="badge bg-light text-dark" id="flashcardDificultad"></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="flashcard-container" style="perspective: 1000px; min-height: 400px; display: flex; justify-content: center; align-items: center;">
+                        <div class="flashcard" id="flashcard" style="width: 100%; max-width: 600px; height: 350px; cursor: pointer;">
+                            <div class="flashcard-inner" style="position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d;">
+                                <div class="flashcard-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; display: flex; align-items: center; justify-content: center;">
+                                    <div class="flashcard-content" style="padding: 30px;">
+                                        <i class="bi bi-question-circle" style="font-size: 3rem;"></i>
+                                        <h3 id="preguntaFlashcard" class="mt-3">Cargando...</h3>
+                                        <p class="mt-3">Haz clic para ver la respuesta</p>
+                                    </div>
+                                </div>
+                                <div class="flashcard-back" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 15px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; transform: rotateY(180deg); display: flex; align-items: center; justify-content: center;">
+                                    <div class="flashcard-content" style="padding: 30px;">
+                                        <i class="bi bi-lightbulb" style="font-size: 2rem;"></i>
+                                        <h4 id="respuestaFlashcard" class="mt-2">...</h4>
+                                        <div class="alert alert-light mt-3" id="ejemploFlashcard">
+                                            <small><strong>Ejemplo:</strong> ...</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <button class="btn btn-outline-secondary" onclick="flashcardAnterior()">
+                            <i class="bi bi-chevron-left"></i> Anterior
+                        </button>
+                        <div>
+                            <button class="btn btn-warning" onclick="marcarDificil()" id="btnDificil">
+                                <i class="bi bi-star"></i> Difícil
+                            </button>
+                            <button class="btn btn-success" onclick="marcarDominada()" id="btnDominada">
+                                <i class="bi bi-check-circle"></i> Dominada
+                            </button>
+                        </div>
+                        <button class="btn btn-outline-secondary" onclick="flashcardSiguiente()">
+                            Siguiente <i class="bi bi-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="text-center mt-3">
+                        <span id="contadorFlashcards" class="text-muted">Flashcard 1 / 50</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let flashcardsData = null;
+let flashcardsFiltradas = [];
+let flashcardActualIndex = 0;
+let progresoFlashcards = { vistas: {}, dominadas: {}, dificiles: {} };
+
+document.addEventListener('DOMContentLoaded', function() {
+    cargarFlashcards();
+    cargarProgreso();
+});
+
+function cargarFlashcards() {
+    fetch('/api/flashcards')
+        .then(response => response.json())
+        .then(data => {
+            flashcardsData = data;
+            inicializarFiltros();
+            aplicarFiltros();
+            configurarFlashcardClick();
+        });
+}
+
+function cargarProgreso() {
+    const progresoGuardado = localStorage.getItem('progresoFlashcards');
+    if (progresoGuardado) {
+        progresoFlashcards = JSON.parse(progresoGuardado);
+    }
+    actualizarEstadisticas();
+}
+
+function guardarProgreso() {
+    localStorage.setItem('progresoFlashcards', JSON.stringify(progresoFlashcards));
+    actualizarEstadisticas();
+}
+
+function inicializarFiltros() {
+    const categorias = new Set();
+    flashcardsData.flashcards.forEach(f => categorias.add(f.categoria));
+    
+    const selectCategoria = document.getElementById('filtroCategoria');
+    categorias.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat;
+        option.textContent = cat;
+        selectCategoria.appendChild(option);
+    });
+    
+    document.getElementById('filtroCategoria').addEventListener('change', aplicarFiltros);
+    document.getElementById('filtroDificultad').addEventListener('change', aplicarFiltros);
+}
+
+function aplicarFiltros() {
+    const categoria = document.getElementById('filtroCategoria').value;
+    const dificultad = document.getElementById('filtroDificultad').value;
+    
+    let filtradas = [...flashcardsData.flashcards];
+    
+    if (categoria !== 'todas') {
+        filtradas = filtradas.filter(f => f.categoria === categoria);
+    }
+    if (dificultad !== 'todas') {
+        filtradas = filtradas.filter(f => f.dificultad === dificultad);
+    }
+    
+    flashcardsFiltradas = filtradas;
+    flashcardActualIndex = 0;
+    
+    if (flashcardsFiltradas.length > 0) {
+        mostrarFlashcard(flashcardsFiltradas[0]);
+    }
+    
+    actualizarContador();
+}
+
+function mostrarFlashcard(flashcard) {
+    document.getElementById('preguntaFlashcard').textContent = flashcard.pregunta;
+    document.getElementById('respuestaFlashcard').textContent = flashcard.respuesta;
+    document.getElementById('ejemploFlashcard').innerHTML = `<small><strong>Ejemplo:</strong> ${flashcard.ejemplo}</small>`;
+    document.getElementById('flashcardCategoria').innerHTML = `<i class="bi bi-tag"></i> ${flashcard.categoria}`;
+    document.getElementById('flashcardDificultad').textContent = `Dificultad: ${flashcard.dificultad}`;
+    
+    if (!progresoFlashcards.vistas[flashcard.id]) {
+        progresoFlashcards.vistas[flashcard.id] = true;
+        guardarProgreso();
+    }
+    
+    actualizarBotones(flashcard.id);
+}
+
+function configurarFlashcardClick() {
+    const flashcard = document.getElementById('flashcard');
+    flashcard.addEventListener('click', function() {
+        this.querySelector('.flashcard-inner').style.transform = 
+            this.classList.contains('flipped') ? 'rotateY(0deg)' : 'rotateY(180deg)';
+        this.classList.toggle('flipped');
+    });
+}
+
+function marcarDominada() {
+    if (flashcardsFiltradas.length === 0) return;
+    const flashcard = flashcardsFiltradas[flashcardActualIndex];
+    
+    if (progresoFlashcards.dominadas[flashcard.id]) {
+        delete progresoFlashcards.dominadas[flashcard.id];
+    } else {
+        progresoFlashcards.dominadas[flashcard.id] = true;
+        delete progresoFlashcards.dificiles[flashcard.id];
+    }
+    
+    guardarProgreso();
+    actualizarBotones(flashcard.id);
+    mostrarFeedback(progresoFlashcards.dominadas[flashcard.id] ? '¡Excelente! Dominada ✓' : 'Marcada como no dominada', 'success');
+}
+
+function marcarDificil() {
+    if (flashcardsFiltradas.length === 0) return;
+    const flashcard = flashcardsFiltradas[flashcardActualIndex];
+    
+    if (progresoFlashcards.dificiles[flashcard.id]) {
+        delete progresoFlashcards.dificiles[flashcard.id];
+    } else {
+        progresoFlashcards.dificiles[flashcard.id] = true;
+        delete progresoFlashcards.dominadas[flashcard.id];
+    }
+    
+    guardarProgreso();
+    actualizarBotones(flashcard.id);
+    mostrarFeedback(progresoFlashcards.dificiles[flashcard.id] ? 'Marcada como difícil. ¡Sigue practicando!' : 'Quitada de difíciles', 'info');
+}
+
+function actualizarBotones(id) {
+    const btnDominada = document.getElementById('btnDominada');
+    const btnDificil = document.getElementById('btnDificil');
+    
+    if (progresoFlashcards.dominadas[id]) {
+        btnDominada.innerHTML = '<i class="bi bi-check-circle-fill"></i> Dominada ✓';
+        btnDominada.classList.remove('btn-success');
+        btnDominada.classList.add('btn-outline-success');
+    } else {
+        btnDominada.innerHTML = '<i class="bi bi-check-circle"></i> Dominada';
+        btnDominada.classList.remove('btn-outline-success');
+        btnDominada.classList.add('btn-success');
+    }
+    
+    if (progresoFlashcards.dificiles[id]) {
+        btnDificil.innerHTML = '<i class="bi bi-star-fill"></i> Difícil ★';
+        btnDificil.classList.remove('btn-warning');
+        btnDificil.classList.add('btn-outline-warning');
+    } else {
+        btnDificil.innerHTML = '<i class="bi bi-star"></i> Difícil';
+        btnDificil.classList.remove('btn-outline-warning');
+        btnDificil.classList.add('btn-warning');
+    }
+}
+
+function flashcardSiguiente() {
+    if (flashcardActualIndex < flashcardsFiltradas.length - 1) {
+        flashcardActualIndex++;
+        mostrarFlashcard(flashcardsFiltradas[flashcardActualIndex]);
+        document.getElementById('flashcard').classList.remove('flipped');
+        document.querySelector('.flashcard-inner').style.transform = 'rotateY(0deg)';
+        actualizarContador();
+    } else {
+        mostrarFeedback('¡Has completado todas las tarjetas! 🎉', 'success');
+    }
+}
+
+function flashcardAnterior() {
+    if (flashcardActualIndex > 0) {
+        flashcardActualIndex--;
+        mostrarFlashcard(flashcardsFiltradas[flashcardActualIndex]);
+        document.getElementById('flashcard').classList.remove('flipped');
+        document.querySelector('.flashcard-inner').style.transform = 'rotateY(0deg)';
+        actualizarContador();
+    }
+}
+
+function actualizarContador() {
+    document.getElementById('contadorFlashcards').textContent = `Flashcard ${flashcardActualIndex + 1} / ${flashcardsFiltradas.length}`;
+}
+
+function actualizarEstadisticas() {
+    if (!flashcardsData) return;
+    
+    const total = flashcardsData.flashcards.length;
+    const vistas = Object.keys(progresoFlashcards.vistas).length;
+    const dominadas = Object.keys(progresoFlashcards.dominadas).length;
+    
+    const porcentaje = total > 0 ? (vistas / total * 100).toFixed(0) : 0;
+    document.getElementById('progresoFlashcards').style.width = `${porcentaje}%`;
+    document.getElementById('progresoFlashcards').textContent = `${porcentaje}%`;
+    document.getElementById('statsFlashcards').textContent = `Vistas: ${vistas}/${total}`;
+    document.getElementById('statsDominadas').textContent = `Dominadas: ${dominadas}/${total}`;
+}
+
+function mostrarFeedback(mensaje, tipo) {
+    const modalHtml = `
+        <div class="modal fade" id="feedbackModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Información</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-${tipo}">${mensaje}</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    const modalContainer = document.createElement('div');
+    modalContainer.innerHTML = modalHtml;
+    document.body.appendChild(modalContainer);
+    const modal = new bootstrap.Modal(modalContainer.querySelector('.modal'));
+    modal.show();
+    modalContainer.addEventListener('hidden.bs.modal', () => modalContainer.remove());
+}
+</script>
+{% endblock %}

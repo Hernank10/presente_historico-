@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Reescribidor - Presente Histórico{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="section-title">Reescribidor de Tiempos Verbales</h1>
+    <p class="lead">Convierte textos entre diferentes tiempos verbales</p>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <label for="modoConversion" class="form-label">Tipo de conversión:</label>
+                    <select class="form-select" id="modoConversion">
+                        <option value="pasado">De Pasado a Presente Histórico</option>
+                        <option value="futuro">De Futuro a Presente Histórico</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="card mt-3">
+                <div class="card-body">
+                    <label for="textoOriginal" class="form-label">Texto original:</label>
+                    <textarea class="form-control" id="textoOriginal" rows="8" 
+                        placeholder="Escribe el texto que quieres transformar..."></textarea>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary mt-3" onclick="reescribirTexto()">
+                <i class="bi bi-arrow-repeat"></i> Transformar Texto
+            </button>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <label class="form-label">Texto transformado:</label>
+                    <div id="textoTransformado" class="result-area">
+                        <p class="text-muted">El texto transformado aparecerá aquí.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5>Ejemplos para practicar:</h5>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-secondary" onclick="cargarEjemploReescribir(1)">
+                            <i class="bi bi-clock-history"></i> Ejemplo en pasado
+                        </button>
+                        <button class="btn btn-outline-secondary" onclick="cargarEjemploReescribir(2)">
+                            <i class="bi bi-calendar-week"></i> Ejemplo en futuro
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function reescribirTexto() {
+    const texto = document.getElementById('textoOriginal').value;
+    const modo = document.getElementById('modoConversion').value;
+    
+    if (!texto.trim()) {
+        alert('Por favor, ingresa un texto para transformar.');
+        return;
+    }
+    
+    fetch('/api/reescribir', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ texto: texto, modo: modo })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            alert(data.error);
+            return;
+        }
+        
+        const html = `
+            <div class="mb-3">
+                <small class="text-muted">Original (${data.modo === 'pasado' ? 'Pasado' : 'Futuro'}):</small>
+                <p class="mt-1">${data.original}</p>
+            </div>
+            <div class="mb-3">
+                <small class="text-success fw-bold">Transformado (Presente Histórico):</small>
+                <p class="mt-1">${data.transformado}</p>
+            </div>
+        `;
+        
+        document.getElementById('textoTransformado').innerHTML = html;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Hubo un error al procesar el texto.');
+    });
+}
+
+function cargarEjemploReescribir(numero) {
+    const ejemplos = {
+        1: "Colón llegó a América en 1492. Sus hombres desembarcaron en una isla que llamaron San Salvador. Los indígenas los recibieron con curiosidad.",
+        2: "Mañana viajaré a Madrid por trabajo. Visitaremos el museo del Prado y cenaremos en un restaurante tradicional. Regresaré el viernes por la noche."
+    };
+    document.getElementById('textoOriginal').value = ejemplos[numero] || '';
+}
+</script>
+{% endblock %}

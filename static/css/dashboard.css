@@ -1,0 +1,259 @@
+/* ============================================
+   DASHBOARD.CSS - Estilos para dashboard y perfil
+   ============================================ */
+
+/* Tarjeta de perfil */
+.profile-card {
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-white);
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
+    font-size: 3rem;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.profile-username {
+    opacity: 0.9;
+    margin-bottom: var(--spacing-md);
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-stat {
+    text-align: center;
+}
+
+.profile-stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.profile-stat-label {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Métricas */
+.metric-card {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.metric-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.metric-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Logros */
+.logros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.logro-item {
+    background: linear-gradient(135deg, var(--success-color), #2ecc71);
+    color: var(--text-white);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.logro-item.locked {
+    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+    opacity: 0.6;
+}
+
+.logro-item:hover {
+    transform: translateY(-3px);
+}
+
+.logro-icon {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.logro-nombre {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.logro-descripcion {
+    font-size: 0.7rem;
+    opacity: 0.9;
+}
+
+/* Rachas */
+.racha-card {
+    background: linear-gradient(135deg, var(--warning-color), #e67e22);
+    color: var(--text-white);
+    text-align: center;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+}
+
+.racha-number {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.racha-label {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.racha-icon {
+    font-size: 2rem;
+}
+
+/* Metas */
+.metas-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.meta-item {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+}
+
+.meta-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-sm);
+}
+
+.meta-title {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.meta-value {
+    color: var(--text-muted);
+}
+
+.meta-progress {
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius-xl);
+    height: 8px;
+    overflow: hidden;
+}
+
+.meta-progress-bar {
+    background: linear-gradient(90deg, var(--secondary-color), var(--success-color));
+    height: 100%;
+    transition: width var(--transition-normal);
+    border-radius: var(--border-radius-xl);
+}
+
+/* Gráficos */
+.chart-container {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.chart-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+}
+
+/* Recomendaciones */
+.recomendaciones-list {
+    list-style: none;
+    padding: 0;
+}
+
+.recomendacion-item {
+    background-color: var(--bg-light);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    transition: all var(--transition-fast);
+}
+
+.recomendacion-item:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+    transform: translateX(5px);
+}
+
+.recomendacion-icon {
+    font-size: 1.5rem;
+}
+
+.recomendacion-text {
+    flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .logros-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .profile-avatar {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+    
+    .profile-name {
+        font-size: 1.2rem;
+    }
+    
+    .metric-value {
+        font-size: 1.5rem;
+    }
+    
+    .racha-number {
+        font-size: 2rem;
+    }
+}

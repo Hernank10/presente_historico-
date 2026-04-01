@@ -1,0 +1,182 @@
+/* ============================================
+   ADMIN.CSS - Estilos para panel de administración
+   ============================================ */
+
+/* Sidebar de admin */
+.admin-sidebar {
+    background-color: var(--primary-color);
+    min-height: 100vh;
+    color: var(--text-white);
+}
+
+.admin-sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    padding: var(--spacing-md) var(--spacing-lg);
+    transition: all var(--transition-fast);
+    border-radius: 0;
+}
+
+.admin-sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-white);
+    padding-left: calc(var(--spacing-lg) + 5px);
+}
+
+.admin-sidebar .nav-link.active {
+    background-color: var(--secondary-color);
+    color: var(--text-white);
+}
+
+.admin-sidebar .nav-link i {
+    margin-right: var(--spacing-sm);
+    width: 20px;
+}
+
+/* Tarjetas de estadísticas admin */
+.admin-stats-card {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all var(--transition-normal);
+    border-bottom: 3px solid transparent;
+}
+
+.admin-stats-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.admin-stats-card.primary { border-bottom-color: var(--primary-color); }
+.admin-stats-card.secondary { border-bottom-color: var(--secondary-color); }
+.admin-stats-card.success { border-bottom-color: var(--success-color); }
+.admin-stats-card.warning { border-bottom-color: var(--warning-color); }
+
+.admin-stats-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.admin-stats-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Tabla de datos admin */
+.admin-table {
+    width: 100%;
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+}
+
+.admin-table thead {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+}
+
+.admin-table th,
+.admin-table td {
+    padding: var(--spacing-md);
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.admin-table tbody tr:hover {
+    background-color: var(--bg-light);
+}
+
+/* Formularios admin */
+.admin-form {
+    background-color: var(--bg-white);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+}
+
+.admin-form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.admin-form-label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.admin-form-control {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 2px solid #e0e0e0;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-fast);
+}
+
+.admin-form-control:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Generador de ejercicios */
+.generator-area {
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+}
+
+.generator-preview {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md);
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.generator-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: var(--spacing-md);
+}
+
+.generator-item:last-child {
+    border-bottom: none;
+}
+
+.generator-question {
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+}
+
+.generator-answer {
+    color: var(--success-color);
+    font-size: 0.9rem;
+}
+
+/* Login admin */
+.admin-login-card {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: var(--spacing-3xl);
+}
+
+/* Responsive admin */
+@media (max-width: 768px) {
+    .admin-sidebar {
+        min-height: auto;
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .admin-stats-card {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .admin-table {
+        font-size: 0.8rem;
+    }
+    
+    .admin-table th,
+    .admin-table td {
+        padding: var(--spacing-sm);
+    }
+}

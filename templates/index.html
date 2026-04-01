@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio - Presente Histórico{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold">El Presente Histórico</h1>
+        <p class="lead">Aprende y practica este recurso narrativo que acerca el pasado al momento actual</p>
+        <a href="{{ url_for('teoria') }}" class="btn btn-light btn-lg mt-3">
+            <i class="bi bi-arrow-right"></i> Comenzar a aprender
+        </a>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">¿Qué puedes hacer?</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card text-center">
+                    <i class="bi bi-book feature-icon"></i>
+                    <h3>Aprender Teoría</h3>
+                    <p>Comprende los conceptos fundamentales del presente histórico con ejemplos prácticos.</p>
+                    <a href="{{ url_for('teoria') }}" class="btn btn-outline-primary">Explorar</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center">
+                    <i class="bi bi-search feature-icon"></i>
+                    <h3>Clasificar Textos</h3>
+                    <p>Analiza textos y descubre qué tipo de presente verbal están utilizando.</p>
+                    <a href="{{ url_for('clasificador') }}" class="btn btn-outline-primary">Analizar</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center">
+                    <i class="bi bi-arrow-repeat feature-icon"></i>
+                    <h3>Reescribir</h3>
+                    <p>Convierte textos del pasado o futuro a presente histórico.</p>
+                    <a href="{{ url_for('reescritor') }}" class="btn btn-outline-primary">Transformar</a>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="feature-card text-center">
+                    <i class="bi bi-pencil-square feature-icon"></i>
+                    <h3>Practicar</h3>
+                    <p>Crea tu propio banco de ejemplos y practica con ellos.</p>
+                    <a href="{{ url_for('practica') }}" class="btn btn-outline-primary">Comenzar</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-card text-center">
+                    <i class="bi bi-puzzle feature-icon"></i>
+                    <h3>Ejercicios</h3>
+                    <p>100 ejercicios organizados por categorías para dominar el presente histórico.</p>
+                    <a href="{{ url_for('ejercicios') }}" class="btn btn-outline-primary">Practicar</a>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="feature-card text-center">
+                    <i class="bi bi-card-list feature-icon"></i>
+                    <h3>Flashcards</h3>
+                    <p>50 tarjetas interactivas para memorizar conceptos clave.</p>
+                    <a href="{{ url_for('flashcards') }}" class="btn btn-outline-primary">Estudiar</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-card text-center">
+                    <i class="bi bi-speedometer2 feature-icon"></i>
+                    <h3>Dashboard</h3>
+                    <p>Sigue tu progreso, desbloquea logros y establece metas.</p>
+                    <a href="{{ url_for('dashboard_estudiante') }}" class="btn btn-outline-primary">Ver progreso</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

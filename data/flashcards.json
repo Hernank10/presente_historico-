@@ -1,0 +1,427 @@
+{
+  "flashcards": [
+    {
+      "id": 1,
+      "categoria": "Presente Histórico",
+      "pregunta": "¿Qué es el presente histórico?",
+      "respuesta": "Es un recurso lingüístico que utiliza el tiempo presente para narrar hechos pasados, dándoles mayor viveza y actualidad.",
+      "ejemplo": "Colón llega a América en 1492 (en lugar de 'llegó')",
+      "dificultad": "fácil"
+    },
+    {
+      "id": 2,
+      "categoria": "Presente Histórico",
+      "pregunta": "¿Cuál es el efecto principal del presente histórico en la narrativa?",
+      "respuesta": "Acerca el pasado al presente, crea inmediatez y permite que el lector 'viva' los eventos como si ocurrieran en el momento.",
+      "ejemplo": "De repente, el héroe entra en la habitación y descubre el secreto.",
+      "dificultad": "media"
+    },
+    {
+      "id": 3,
+      "categoria": "Presente Histórico",
+      "pregunta": "¿En qué contextos se usa comúnmente el presente histórico?",
+      "respuesta": "En textos periodísticos, narrativa literaria, discursos históricos, biografías y narraciones personales.",
+      "ejemplo": "El presidente anuncia nuevas medidas durante la conferencia de prensa.",
+      "dificultad": "media"
+    },
+    {
+      "id": 4,
+      "categoria": "Presente por Futuro",
+      "pregunta": "¿Qué es el presente por futuro?",
+      "respuesta": "Es el uso del presente para expresar acciones que ocurrirán en el futuro, especialmente cuando están planeadas o decididas.",
+      "ejemplo": "Mañana viajo a Madrid (en lugar de 'viajaré')",
+      "dificultad": "fácil"
+    },
+    {
+      "id": 5,
+      "categoria": "Presente por Futuro",
+      "pregunta": "¿Cuándo se utiliza el presente por futuro?",
+      "respuesta": "Cuando se habla de planes concretos, decisiones firmes, eventos programados o acciones que están a punto de ocurrir.",
+      "ejemplo": "La próxima semana empiezo mi nuevo trabajo.",
+      "dificultad": "media"
+    },
+    {
+      "id": 6,
+      "categoria": "Presente Habitual",
+      "pregunta": "¿Qué expresa el presente habitual?",
+      "respuesta": "Expresa acciones que ocurren regularmente, hábitos, rutinas o costumbres.",
+      "ejemplo": "Siempre desayuno café con leche.",
+      "dificultad": "fácil"
+    },
+    {
+      "id": 7,
+      "categoria": "Presente Habitual",
+      "pregunta": "¿Qué palabras clave suelen acompañar al presente habitual?",
+      "respuesta": "Siempre, nunca, todos los días, cada semana, regularmente, normalmente, frecuentemente.",
+      "ejemplo": "Normalmente ceno a las 8 de la noche.",
+      "dificultad": "fácil"
+    },
+    {
+      "id": 8,
+      "categoria": "Presente Actual",
+      "pregunta": "¿Qué es el presente actual?",
+      "respuesta": "Describe acciones que están ocurriendo en el mismo momento en que se habla.",
+      "ejemplo": "Ahora mismo escribo un mensaje.",
+      "dificultad": "fácil"
+    },
+    {
+      "id": 9,
+      "categoria": "Presente Actual",
+      "pregunta": "¿Qué expresiones temporales acompañan al presente actual?",
+      "respuesta": "Ahora, en este momento, actualmente, ahora mismo, en el presente.",
+      "ejemplo": "En este momento, el médico revisa los resultados.",
+      "dificultad": "fácil"
+    },
+    {
+      "id": 10,
+      "categoria": "Presente Noómico",
+      "pregunta": "¿Qué es el presente noómico?",
+      "respuesta": "Expresa verdades universales, hechos científicos, refranes y máximas de validez permanente.",
+      "ejemplo": "La Tierra gira alrededor del Sol.",
+      "dificultad": "media"
+    },
+    {
+      "id": 11,
+      "categoria": "Presente Noómico",
+      "pregunta": "¿Qué tipo de textos usan el presente noómico?",
+      "respuesta": "Textos científicos, refranes, proverbios, verdades universales y enseñanzas morales.",
+      "ejemplo": "Más vale pájaro en mano que ciento volando.",
+      "dificultad": "media"
+    },
+    {
+      "id": 12,
+      "categoria": "Conversión",
+      "pregunta": "¿Cómo se convierte una oración en pasado a presente histórico?",
+      "respuesta": "Cambiando los verbos en pasado a su forma equivalente en presente, manteniendo las referencias temporales.",
+      "ejemplo": "Pasado: 'Napoleón perdió Waterloo' → Histórico: 'Napoleón pierde Waterloo'",
+      "dificultad": "media"
+    },
+    {
+      "id": 13,
+      "categoria": "Conversión",
+      "pregunta": "¿Cómo se convierte una oración en futuro a presente histórico?",
+      "respuesta": "Cambiando los verbos en futuro simple a su forma en presente.",
+      "ejemplo": "Futuro: 'Mañana visitaré el museo' → Histórico: 'Mañana visito el museo'",
+      "dificultad": "media"
+    },
+    {
+      "id": 14,
+      "categoria": "Características",
+      "pregunta": "¿Qué características tiene el presente histórico?",
+      "respuesta": "Da inmediatez, crea dramatismo, acerca el pasado, es común en narrativa y periodismo, permite revivir eventos.",
+      "ejemplo": "El héroe enfrenta al villano en un duelo épico.",
+      "dificultad": "difícil"
+    },
+    {
+      "id": 15,
+      "categoria": "Características",
+      "pregunta": "¿Qué diferencia el presente histórico del presente actual?",
+      "respuesta": "El presente histórico narra eventos pasados como si fueran actuales; el presente actual describe acciones en curso en el momento de hablar.",
+      "ejemplo": "Histórico: 'Cervantes escribe El Quijote' vs Actual: 'Ahora leo El Quijote'",
+      "dificultad": "difícil"
+    },
+    {
+      "id": 16,
+      "categoria": "Ejemplos Históricos",
+      "pregunta": "Convierte al presente histórico: 'Los aztecas fundaron Tenochtitlán en 1325'",
+      "respuesta": "Los aztecas fundan Tenochtitlán en 1325",
+      "ejemplo": "Uso correcto: 'Fundan' en lugar de 'fundaron'",
+      "dificultad": "fácil"
+    },
+    {
+      "id": 17,
+      "categoria": "Ejemplos Históricos",
+      "pregunta": "Convierte al presente histórico: 'La Revolución Francesa comenzó en 1789'",
+      "respuesta": "La Revolución Francesa comienza en 1789",
+      "ejemplo": "Se usa 'comienza' para dar inmediatez al evento histórico",
+      "dificultad": "fácil"
+    },
+    {
+      "id": 18,
+      "categoria": "Ejemplos Históricos",
+      "pregunta": "Convierte al presente histórico: 'Gandhi lideró el movimiento de independencia de la India'",
+      "respuesta": "Gandhi lidera el movimiento de independencia de India",
+      "ejemplo": "El presente histórico resalta su papel fundamental",
+      "dificultad": "media"
+    },
+    {
+      "id": 19,
+      "categoria": "Ejemplos Personales",
+      "pregunta": "Convierte al presente histórico: 'El año pasado viajé a París'",
+      "respuesta": "El año pasado viajo a París",
+      "ejemplo": "Revivir el viaje como si estuviera ocurriendo ahora",
+      "dificultad": "media"
+    },
+    {
+      "id": 20,
+      "categoria": "Ejemplos Personales",
+      "pregunta": "Convierte al presente histórico: 'Cuando conocí a mi mejor amigo, supe que sería importante'",
+      "respuesta": "Cuando conozco a mi mejor amigo, sé que será importante",
+      "ejemplo": "El presente histórico enfatiza la importancia del momento",
+      "dificultad": "difícil"
+    },
+    {
+      "id": 21,
+      "categoria": "Identificación",
+      "pregunta": "Identifica el tipo de presente: 'Siempre corro en el parque'",
+      "respuesta": "Presente Habitual",
+      "ejemplo": "Describe una rutina constante",
+      "dificultad": "fácil"
+    },
+    {
+      "id": 22,
+      "categoria": "Identificación",
+      "pregunta": "Identifica el tipo de presente: 'Shakespeare escribe Hamlet en 1600'",
+      "respuesta": "Presente Histórico",
+      "ejemplo": "Narra un hecho pasado con actualidad",
+      "dificultad": "fácil"
+    },
+    {
+      "id": 23,
+      "categoria": "Identificación",
+      "pregunta": "Identifica el tipo de presente: 'Mañana comienzo mi dieta'",
+      "respuesta": "Presente por Futuro",
+      "ejemplo": "Expresa un plan futuro decidido",
+      "dificultad": "fácil"
+    },
+    {
+      "id": 24,
+      "categoria": "Identificación",
+      "pregunta": "Identifica el tipo de presente: 'Ahora mismo como una manzana'",
+      "respuesta": "Presente Actual",
+      "ejemplo": "Acción en curso en el momento de hablar",
+      "dificultad": "fácil"
+    },
+    {
+      "id": 25,
+      "categoria": "Identificación",
+      "pregunta": "Identifica el tipo de presente: 'El agua hierve a 100°C'",
+      "respuesta": "Presente Noómico",
+      "ejemplo": "Verdad científica universal",
+      "dificultad": "media"
+    },
+    {
+      "id": 26,
+      "categoria": "Usos Especiales",
+      "pregunta": "¿Cómo se usa el presente histórico en titulares periodísticos?",
+      "respuesta": "Para dar inmediatez y actualidad a noticias que ocurrieron recientemente.",
+      "ejemplo": "'El equipo gana la final' (en lugar de 'ganó')",
+      "dificultad": "media"
+    },
+    {
+      "id": 27,
+      "categoria": "Usos Especiales",
+      "pregunta": "¿Cómo se usa el presente histórico en narrativa literaria?",
+      "respuesta": "Para crear tensión y sumergir al lector en la acción como si fuera testigo.",
+      "ejemplo": "El detective entra en la habitación, observa la escena y descubre la pista.",
+      "dificultad": "difícil"
+    },
+    {
+      "id": 28,
+      "categoria": "Usos Especiales",
+      "pregunta": "¿Qué efecto tiene el presente histórico en biografías?",
+      "respuesta": "Hace que los personajes históricos parezcan vivos y sus acciones relevantes hoy.",
+      "ejemplo": "Frida Kahlo pinta con pasión, expresa su dolor a través del arte.",
+      "dificultad": "media"
+    },
+    {
+      "id": 29,
+      "categoria": "Errores Comunes",
+      "pregunta": "¿Cuál es un error común al usar presente histórico?",
+      "respuesta": "Mezclar tiempos verbales inconsistentemente dentro de una misma narración.",
+      "ejemplo": "Incorrecto: 'Colón llega en 1492 y descubrió América'",
+      "dificultad": "difícil"
+    },
+    {
+      "id": 30,
+      "categoria": "Errores Comunes",
+      "pregunta": "¿Cuándo NO se debe usar presente histórico?",
+      "respuesta": "En textos académicos formales o cuando se requiere precisión cronológica estricta.",
+      "ejemplo": "Preferir pasado simple en informes históricos oficiales",
+      "dificultad": "difícil"
+    },
+    {
+      "id": 31,
+      "categoria": "Refranes",
+      "pregunta": "Convierte al presente histórico este refrán: 'El que madrugó, Dios lo ayudó'",
+      "respuesta": "El que madruga, Dios lo ayuda",
+      "ejemplo": "Los refranes usan presente noómico, no histórico",
+      "dificultad": "media"
+    },
+    {
+      "id": 32,
+      "categoria": "Refranes",
+      "pregunta": "Completa: 'Más vale pájaro en mano que ______ volando'",
+      "respuesta": "ciento",
+      "ejemplo": "Refrán que usa presente noómico",
+      "dificultad": "fácil"
+    },
+    {
+      "id": 33,
+      "categoria": "Conjugación",
+      "pregunta": "Conjuga 'comer' en presente para 'yo'",
+      "respuesta": "como",
+      "ejemplo": "Yo como frutas todas las mañanas",
+      "dificultad": "fácil"
+    },
+    {
+      "id": 34,
+      "categoria": "Conjugación",
+      "pregunta": "Conjuga 'vivir' en presente para 'ellos'",
+      "respuesta": "viven",
+      "ejemplo": "Ellos viven en Madrid actualmente",
+      "dificultad": "fácil"
+    },
+    {
+      "id": 35,
+      "categoria": "Conjugación",
+      "pregunta": "Conjuga 'tener' en presente para 'nosotros'",
+      "respuesta": "tenemos",
+      "ejemplo": "Nosotros tenemos una reunión ahora",
+      "dificultad": "fácil"
+    },
+    {
+      "id": 36,
+      "categoria": "Ejercicio Mental",
+      "pregunta": "¿Cómo narrarías la escena de un robo usando presente histórico?",
+      "respuesta": "El ladrón entra sigilosamente, abre la caja fuerte, toma el dinero y huye por la ventana.",
+      "ejemplo": "Crear tensión e inmediatez en la narración",
+      "dificultad": "difícil"
+    },
+    {
+      "id": 37,
+      "categoria": "Ejercicio Mental",
+      "pregunta": "¿Cómo narrarías un momento importante de tu vida en presente histórico?",
+      "respuesta": "Camino hacia el escenario, siento los nervios, respiro hondo y comienzo mi discurso.",
+      "ejemplo": "Revivir la experiencia como si fuera ahora",
+      "dificultad": "difícil"
+    },
+    {
+      "id": 38,
+      "categoria": "Comparación",
+      "pregunta": "Diferencia entre presente histórico y presente narrativo",
+      "respuesta": "El presente histórico revive el pasado; el presente narrativo cuenta ficción en tiempo real.",
+      "ejemplo": "Histórico: 'Cervantes escribe' vs Narrativo: 'El personaje camina'",
+      "dificultad": "difícil"
+    },
+    {
+      "id": 39,
+      "categoria": "Comparación",
+      "pregunta": "¿Cuándo es preferible usar pasado simple sobre presente histórico?",
+      "respuesta": "En informes académicos, documentos formales, o cuando se busca objetividad.",
+      "ejemplo": "La investigación se realizó en 2020 (en lugar de 'se realiza')",
+      "dificultad": "media"
+    },
+    {
+      "id": 40,
+      "categoria": "Avanzado",
+      "pregunta": "¿Qué es el 'presente histórico atemporal'?",
+      "respuesta": "Uso del presente para describir eventos pasados que siguen teniendo relevancia hoy.",
+      "ejemplo": "La Constitución establece los derechos fundamentales.",
+      "dificultad": "difícil"
+    },
+    {
+      "id": 41,
+      "categoria": "Avanzado",
+      "pregunta": "¿Cómo afecta el presente histórico al ritmo narrativo?",
+      "respuesta": "Acelera el ritmo, crea urgencia y mantiene al lector en tensión constante.",
+      "ejemplo": "Escenas de acción en presente generan más adrenalina",
+      "dificultad": "difícil"
+    },
+    {
+      "id": 42,
+      "categoria": "Práctica",
+      "pregunta": "Convierte: 'Los científicos descubrieron una nueva especie'",
+      "respuesta": "Los científicos descubren una nueva especie",
+      "ejemplo": "Dar inmediatez al descubrimiento",
+      "dificultad": "media"
+    },
+    {
+      "id": 43,
+      "categoria": "Práctica",
+      "pregunta": "Convierte: 'El año próximo me casaré'",
+      "respuesta": "El año próximo me caso",
+      "ejemplo": "Presente por futuro para evento planificado",
+      "dificultad": "fácil"
+    },
+    {
+      "id": 44,
+      "categoria": "Práctica",
+      "pregunta": "Convierte: 'Cada domingo visitaba a mis abuelos'",
+      "respuesta": "Cada domingo visito a mis abuelos",
+      "ejemplo": "Presente habitual para rutina pasada",
+      "dificultad": "media"
+    },
+    {
+      "id": 45,
+      "categoria": "Reflexión",
+      "pregunta": "¿Por qué el presente histórico es efectivo en discursos políticos?",
+      "respuesta": "Conecta eventos históricos con el presente, creando sentido de continuidad y relevancia.",
+      "ejemplo": "Nuestros héroes luchan por la libertad, y hoy nosotros continuamos su legado",
+      "dificultad": "difícil"
+    },
+    {
+      "id": 46,
+      "categoria": "Reflexión",
+      "pregunta": "¿Cómo usar presente histórico en una clase de historia?",
+      "respuesta": "Para hacer los eventos más vívidos y memorables para los estudiantes.",
+      "ejemplo": "Imaginen: 1810, Hidalgo da el Grito, el pueblo se levanta...",
+      "dificultad": "media"
+    },
+    {
+      "id": 47,
+      "categoria": "Cultura",
+      "pregunta": "Ejemplo de presente histórico en literatura universal",
+      "respuesta": "Cien años de soledad de García Márquez: 'Muchos años después, frente al pelotón de fusilamiento...'",
+      "ejemplo": "El autor mezcla pasado y presente para crear atmósfera",
+      "dificultad": "difícil"
+    },
+    {
+      "id": 48,
+      "categoria": "Cultura",
+      "pregunta": "¿Qué autores latinoamericanos usan frecuentemente presente histórico?",
+      "respuesta": "Gabriel García Márquez, Julio Cortázar, Jorge Luis Borges, Mario Vargas Llosa.",
+      "ejemplo": "Técnica narrativa común en el realismo mágico",
+      "dificultad": "difícil"
+    },
+    {
+      "id": 49,
+      "categoria": "Evaluación",
+      "pregunta": "Evalúa esta frase: 'El descubrimiento de América ocurrió en 1492 y cambió la historia'",
+      "respuesta": "Podría mejorarse con presente histórico: 'El descubrimiento de América ocurre en 1492 y cambia la historia'",
+      "ejemplo": "Dar mayor impacto al evento",
+      "dificultad": "media"
+    },
+    {
+      "id": 50,
+      "categoria": "Evaluación",
+      "pregunta": "¿Cuál es la clave para dominar el presente histórico?",
+      "respuesta": "Practicar la conversión de textos, leer ejemplos de autores consagrados y usarlo en narraciones personales.",
+      "ejemplo": "La práctica constante y la lectura son fundamentales",
+      "dificultad": "difícil"
+    }
+  ],
+  "estadisticas": {
+    "total_flashcards": 50,
+    "por_categoria": {
+      "Presente Histórico": 4,
+      "Presente por Futuro": 3,
+      "Presente Habitual": 3,
+      "Presente Actual": 3,
+      "Presente Noómico": 3,
+      "Conversión": 3,
+      "Características": 3,
+      "Ejemplos Históricos": 4,
+      "Ejemplos Personales": 3,
+      "Identificación": 6,
+      "Usos Especiales": 4,
+      "Errores Comunes": 3,
+      "Refranes": 3,
+      "Conjugación": 3,
+      "Avanzado": 3,
+      "Práctica": 3,
+      "Cultura": 2,
+      "Evaluación": 2
+    }
+  }
+}

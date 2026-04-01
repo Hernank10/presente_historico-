@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block title %}Práctica - Presente Histórico{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="section-title">Práctica con Ejemplos</h1>
+    <p class="lead">Crea y gestiona tus propios ejemplos para practicar</p>
+    
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Agregar nueva frase</h5>
+                    <div class="mb-3">
+                        <label for="nuevaFrase" class="form-label">Escribe tu ejemplo:</label>
+                        <textarea class="form-control" id="nuevaFrase" rows="3" 
+                            placeholder="Ej: En 1789, el pueblo toma la Bastilla..."></textarea>
+                    </div>
+                    <button class="btn btn-primary" onclick="agregarFrase()">
+                        <i class="bi bi-plus-circle"></i> Guardar Frase
+                    </button>
+                    <div class="mt-2">
+                        <small class="text-muted" id="contadorFrases">Frases guardadas: 0/100</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Ejercicios sugeridos</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="bi bi-pencil"></i> 1. Reescribe un párrafo histórico usando presente histórico</li>
+                        <li class="list-group-item"><i class="bi bi-newspaper"></i> 2. Convierte una noticia reciente a presente histórico</li>
+                        <li class="list-group-item"><i class="bi bi-person-walking"></i> 3. Narra un evento personal usando este recurso</li>
+                        <li class="list-group-item"><i class="bi bi-journal"></i> 4. Identifica usos del presente histórico en textos periodísticos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Mis frases guardadas</h5>
+                    <div id="listaFrases" class="mt-3">
+                        <p class="text-muted">No hay frases guardadas todavía.</p>
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-outline-danger btn-sm" onclick="limpiarFrases()">
+                            <i class="bi bi-trash"></i> Eliminar todas
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let frasesUsuario = [];
+
+function cargarFrases() {
+    const frasesGuardadas = localStorage.getItem('frasesPresenteHistorico');
+    if (frasesGuardadas) {
+        frasesUsuario = JSON.parse(frasesGuardadas);
+        actualizarListaFrases();
+        actualizarContador();
+    }
+}
+
+function guardarFrases() {
+    localStorage.setItem('frasesPresenteHistorico', JSON.stringify(frasesUsuario));
+}
+
+function agregarFrase() {
+    const texto = document.getElementById('nuevaFrase').value.trim();
+    
+    if (!texto) {
+        alert('Por favor, escribe una frase.');
+        return;
+    }
+    
+    if (frasesUsuario.length >= 100) {
+        alert('Has alcanzado el límite de 100 frases.');
+        return;
+    }
+    
+    fetch('/api/clasificar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ texto: texto })
+    })
+    .then(response => response.json())
+    .then(data => {
+        const categoria = data.resultados && data.resultados.length > 0 ? data.resultados[0].categoria : 'No identificado';
+        const fecha = new Date().toLocaleString();
+        
+        frasesUsuario.push({ texto: texto, categoria: categoria, fecha: fecha });
+        guardarFrases();
+        actualizarListaFrases();
+        actualizarContador();
+        document.getElementById('nuevaFrase').value = '';
+    });
+}
+
+function actualizarListaFrases() {
+    const listaDiv = document.getElementById('listaFrases');
+    
+    if (frasesUsuario.length === 0) {
+        listaDiv.innerHTML = '<p class="text-muted">No hay frases guardadas todavía.</p>';
+        return;
+    }
+    
+    let html = '';
+    frasesUsuario.forEach((frase, index) => {
+        let badgeClass = 'secondary';
+        if (frase.categoria === 'Presente Histórico') badgeClass = 'primary';
+        else if (frase.categoria === 'Presente por Futuro') badgeClass = 'success';
+        else if (frase.categoria === 'Presente Habitual') badgeClass = 'warning';
+        else if (frase.categoria === 'Presente Actual') badgeClass = 'info';
+        
+        html += `
+            <div class="phrase-item border-bottom py-2">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <strong>${index + 1}. ${frase.texto}</strong>
+                        <div class="mt-1">
+                            <span class="badge bg-${badgeClass} me-2">${frase.categoria}</span>
+                            <small class="text-muted">${frase.fecha}</small>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-outline-danger" onclick="eliminarFrase(${index})">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+            </div>
+        `;
+    });
+    
+    listaDiv.innerHTML = html;
+}
+
+function eliminarFrase(index) {
+    if (confirm('¿Estás seguro de que quieres eliminar esta frase?')) {
+        frasesUsuario.splice(index, 1);
+        guardarFrases();
+        actualizarListaFrases();
+        actualizarContador();
+    }
+}
+
+function limpiarFrases() {
+    if (confirm('¿Estás seguro de que quieres eliminar TODAS las frases?')) {
+        frasesUsuario = [];
+        guardarFrases();
+        actualizarListaFrases();
+        actualizarContador();
+    }
+}
+
+function actualizarContador() {
+    document.getElementById('contadorFrases').textContent = `Frases guardadas: ${frasesUsuario.length}/100`;
+}
+
+document.addEventListener('DOMContentLoaded', cargarFrases);
+</script>
+{% endblock %}

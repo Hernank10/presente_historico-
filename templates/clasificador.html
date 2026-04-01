@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}Clasificador - Presente Histórico{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="section-title">Clasificador de Tiempos Verbales</h1>
+    <p class="lead">Analiza textos y descubre qué tipo de presente verbal utilizan</p>
+    
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <label for="textoClasificar" class="form-label">Texto a analizar:</label>
+                    <textarea class="form-control" id="textoClasificar" rows="8" 
+                        placeholder="Escribe o pega tu texto aquí..."></textarea>
+                </div>
+            </div>
+            <button class="btn btn-primary mt-3" onclick="clasificarTexto()">
+                <i class="bi bi-search"></i> Analizar Texto
+            </button>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5>Ejemplos para probar:</h5>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-secondary" onclick="cargarEjemplo(1)">
+                            <i class="bi bi-calendar-event"></i> Ejemplo histórico
+                        </button>
+                        <button class="btn btn-outline-secondary" onclick="cargarEjemplo(2)">
+                            <i class="bi bi-film"></i> Ejemplo narrativo
+                        </button>
+                        <button class="btn btn-outline-secondary" onclick="cargarEjemplo(3)">
+                            <i class="bi bi-person"></i> Ejemplo personal
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-12">
+            <h5>Resultado del análisis:</h5>
+            <div id="resultadoClasificacion" class="result-area">
+                <p class="text-muted">Los resultados aparecerán aquí después del análisis.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function clasificarTexto() {
+    const texto = document.getElementById('textoClasificar').value;
+    
+    if (!texto.trim()) {
+        alert('Por favor, ingresa un texto para analizar.');
+        return;
+    }
+    
+    fetch('/api/clasificar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ texto: texto })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            alert(data.error);
+            return;
+        }
+        
+        let html = '<div class="list-group">';
+        data.resultados.forEach(result => {
+            let badgeClass = 'secondary';
+            if (result.categoria === 'Presente Histórico') badgeClass = 'primary';
+            else if (result.categoria === 'Presente por Futuro') badgeClass = 'success';
+            else if (result.categoria === 'Presente Habitual') badgeClass = 'warning';
+            else if (result.categoria === 'Presente Actual') badgeClass = 'info';
+            
+            html += `
+                <div class="list-group-item">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <strong>Oración ${result.numero}:</strong>
+                        <span class="badge bg-${badgeClass}">${result.categoria}</span>
+                    </div>
+                    <p class="mt-2 mb-0">"${result.texto}"</p>
+                </div>
+            `;
+        });
+        html += '</div>';
+        
+        document.getElementById('resultadoClasificacion').innerHTML = html;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Hubo un error al procesar el texto.');
+    });
+}
+
+function cargarEjemplo(numero) {
+    const ejemplos = {
+        1: "En 1519, Hernán Cortés llega a México y inicia la conquista del imperio azteca. Moctezuma lo recibe pensando que es un dios.",
+        2: "De repente, escucho un ruido en la cocina. Me levanto de la cama y voy a investigar. Encuentro al gato jugando con una bolsa.",
+        3: "Primero me deja Luis, luego me abandona Jaime en 2012. En febrero me consigo a Roberto y también se va. ¿Quieres que no esté preocupada?"
+    };
+    document.getElementById('textoClasificar').value = ejemplos[numero] || '';
+}
+</script>
+{% endblock %}

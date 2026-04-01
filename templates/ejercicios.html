@@ -1,0 +1,348 @@
+{% extends "base.html" %}
+
+{% block title %}Ejercicios - Presente Histórico{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="section-title">Práctica con Ejercicios</h1>
+    <p class="lead">Ejercicios organizados por categorías para dominar el presente histórico</p>
+    
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Categorías</h5>
+                    <div id="categoriasList" class="list-group list-group-flush">
+                        <div class="text-center p-3">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Cargando...</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <div class="progress">
+                            <div id="progresoGeneral" class="progress-bar" role="progressbar" style="width: 0%">0%</div>
+                        </div>
+                        <small class="text-muted" id="statsEjercicios">Ejercicios completados: 0/100</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0" id="categoriaActual">Selecciona una categoría</h5>
+                        <span class="badge bg-light text-dark" id="dificultadActual"></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div id="areaEjercicio">
+                        <div class="text-center py-5">
+                            <i class="bi bi-arrow-left-circle" style="font-size: 3rem; color: #ccc;"></i>
+                            <p class="mt-3 text-muted">Selecciona una categoría del menú izquierdo para comenzar</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-outline-secondary" id="btnAnterior" onclick="ejercicioAnterior()" disabled>
+                            <i class="bi bi-chevron-left"></i> Anterior
+                        </button>
+                        <button class="btn btn-primary" id="btnVerificar" onclick="verificarRespuesta()" style="display: none;">
+                            <i class="bi bi-check-circle"></i> Verificar
+                        </button>
+                        <button class="btn btn-success" id="btnSiguiente" onclick="ejercicioSiguiente()" style="display: none;">
+                            Siguiente <i class="bi bi-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let ejerciciosData = null;
+let categoriaActual = null;
+let ejercicioActual = null;
+let progreso = {};
+
+document.addEventListener('DOMContentLoaded', function() {
+    cargarEjercicios();
+    cargarProgreso();
+});
+
+function cargarEjercicios() {
+    fetch('/api/ejercicios')
+        .then(response => response.json())
+        .then(data => {
+            ejerciciosData = data;
+            mostrarCategorias();
+        });
+}
+
+function cargarProgreso() {
+    const progresoGuardado = localStorage.getItem('progresoEjercicios');
+    if (progresoGuardado) {
+        progreso = JSON.parse(progresoGuardado);
+    }
+    actualizarEstadisticas();
+}
+
+function guardarProgreso() {
+    localStorage.setItem('progresoEjercicios', JSON.stringify(progreso));
+    actualizarEstadisticas();
+}
+
+function mostrarCategorias() {
+    const container = document.getElementById('categoriasList');
+    let html = '';
+    
+    ejerciciosData.categorias.forEach(categoria => {
+        const completados = progreso[categoria.id] ? Object.keys(progreso[categoria.id]).filter(id => progreso[categoria.id][id]).length : 0;
+        const total = categoria.ejercicios.length;
+        const porcentaje = total > 0 ? (completados / total * 100).toFixed(0) : 0;
+        
+        html += `
+            <button class="list-group-item list-group-item-action" onclick="seleccionarCategoria(${categoria.id})">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <i class="bi bi-folder"></i> ${categoria.nombre}
+                        <br><small class="text-muted">${categoria.descripcion.substring(0, 50)}...</small>
+                    </div>
+                    <div class="text-end">
+                        <span class="badge bg-secondary">${total} ej.</span>
+                        <div class="progress mt-1" style="width: 60px; height: 4px;">
+                            <div class="progress-bar" style="width: ${porcentaje}%"></div>
+                        </div>
+                    </div>
+                </div>
+            </button>
+        `;
+    });
+    
+    container.innerHTML = html;
+}
+
+function seleccionarCategoria(categoriaId) {
+    categoriaActual = ejerciciosData.categorias.find(c => c.id === categoriaId);
+    if (!categoriaActual) return;
+    
+    document.getElementById('categoriaActual').textContent = categoriaActual.nombre;
+    
+    let primerEjercicio = null;
+    for (let i = 0; i < categoriaActual.ejercicios.length; i++) {
+        const ej = categoriaActual.ejercicios[i];
+        if (!progreso[categoriaActual.id] || !progreso[categoriaActual.id][ej.id]) {
+            primerEjercicio = ej;
+            break;
+        }
+    }
+    
+    if (!primerEjercicio && categoriaActual.ejercicios.length > 0) {
+        primerEjercicio = categoriaActual.ejercicios[0];
+    }
+    
+    if (primerEjercicio) {
+        mostrarEjercicio(primerEjercicio);
+    }
+    
+    actualizarProgresoCategoria();
+}
+
+function mostrarEjercicio(ejercicio) {
+    ejercicioActual = ejercicio;
+    document.getElementById('dificultadActual').textContent = `Dificultad: ${ejercicio.dificultad}`;
+    
+    let html = '';
+    
+    switch(ejercicio.tipo) {
+        case 'pasado_a_historico':
+        case 'futuro_a_historico':
+            html = `
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Convierte la siguiente oración al presente histórico:</label>
+                    <div class="alert alert-secondary">${ejercicio.pregunta}</div>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" id="respuestaUsuario" rows="3" placeholder="Escribe tu respuesta aquí..."></textarea>
+                </div>
+            `;
+            break;
+        case 'completar':
+            html = `
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Completa el espacio en blanco con la forma correcta del verbo:</label>
+                    <div class="alert alert-secondary">${ejercicio.pregunta}</div>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="respuestaUsuario" placeholder="Escribe tu respuesta...">
+                </div>
+            `;
+            break;
+        case 'identificar':
+            html = `
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Identifica qué tipo de presente verbal se está utilizando:</label>
+                    <div class="alert alert-secondary">${ejercicio.pregunta}</div>
+                </div>
+                <div class="mb-3">
+                    <select class="form-select" id="respuestaUsuario">
+                        <option value="">Selecciona una opción...</option>
+                        <option value="Presente Histórico">Presente Histórico</option>
+                        <option value="Presente por Futuro">Presente por Futuro</option>
+                        <option value="Presente Habitual">Presente Habitual</option>
+                        <option value="Presente Actual">Presente Actual</option>
+                        <option value="Presente Noómico">Presente Noómico</option>
+                    </select>
+                </div>
+            `;
+            break;
+        case 'traduccion':
+            html = `
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Traduce la siguiente oración al español usando el presente adecuado:</label>
+                    <div class="alert alert-secondary">${ejercicio.pregunta}</div>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" id="respuestaUsuario" rows="3" placeholder="Escribe tu traducción aquí..."></textarea>
+                </div>
+            `;
+            break;
+    }
+    
+    document.getElementById('areaEjercicio').innerHTML = html;
+    document.getElementById('btnVerificar').style.display = 'inline-block';
+    document.getElementById('btnSiguiente').style.display = 'none';
+}
+
+function verificarRespuesta() {
+    const respuesta = document.getElementById('respuestaUsuario').value.trim();
+    
+    if (!respuesta) {
+        mostrarFeedback('Por favor, escribe una respuesta.', 'warning');
+        return;
+    }
+    
+    const esCorrecta = normalizarRespuesta(respuesta) === normalizarRespuesta(ejercicioActual.respuesta_correcta);
+    
+    if (esCorrecta) {
+        if (!progreso[categoriaActual.id]) progreso[categoriaActual.id] = {};
+        progreso[categoriaActual.id][ejercicioActual.id] = true;
+        guardarProgreso();
+        
+        mostrarFeedback('¡Correcto! ✅ Muy bien.', 'success');
+        
+        document.getElementById('btnVerificar').style.display = 'none';
+        document.getElementById('btnSiguiente').style.display = 'inline-block';
+        
+        mostrarCategorias();
+        actualizarProgresoCategoria();
+    } else {
+        mostrarFeedback(`Incorrecto ❌. La respuesta correcta es: "${ejercicioActual.respuesta_correcta}"`, 'danger');
+    }
+}
+
+function normalizarRespuesta(texto) {
+    return texto.toLowerCase().trim().replace(/[¿?¡!]/g, '').replace(/\s+/g, ' ');
+}
+
+function ejercicioSiguiente() {
+    const ejercicios = categoriaActual.ejercicios;
+    const indiceActual = ejercicios.findIndex(e => e.id === ejercicioActual.id);
+    
+    let siguienteEjercicio = null;
+    for (let i = indiceActual + 1; i < ejercicios.length; i++) {
+        if (!progreso[categoriaActual.id] || !progreso[categoriaActual.id][ejercicios[i].id]) {
+            siguienteEjercicio = ejercicios[i];
+            break;
+        }
+    }
+    
+    if (!siguienteEjercicio) {
+        for (let i = 0; i < ejercicios.length; i++) {
+            if (!progreso[categoriaActual.id] || !progreso[categoriaActual.id][ejercicios[i].id]) {
+                siguienteEjercicio = ejercicios[i];
+                break;
+            }
+        }
+    }
+    
+    if (siguienteEjercicio) {
+        mostrarEjercicio(siguienteEjercicio);
+    } else {
+        mostrarFeedback('¡Felicidades! Has completado todos los ejercicios de esta categoría. 🎉', 'success');
+        document.getElementById('btnVerificar').style.display = 'none';
+        document.getElementById('btnSiguiente').style.display = 'none';
+    }
+}
+
+function ejercicioAnterior() {
+    if (!categoriaActual || !ejercicioActual) return;
+    
+    const ejercicios = categoriaActual.ejercicios;
+    const indiceActual = ejercicios.findIndex(e => e.id === ejercicioActual.id);
+    
+    if (indiceActual > 0) {
+        mostrarEjercicio(ejercicios[indiceActual - 1]);
+        document.getElementById('btnVerificar').style.display = 'inline-block';
+        document.getElementById('btnSiguiente').style.display = 'none';
+    }
+}
+
+function actualizarProgresoCategoria() {
+    if (!categoriaActual) return;
+    
+    const completados = progreso[categoriaActual.id] ? Object.keys(progreso[categoriaActual.id]).length : 0;
+    const total = categoriaActual.ejercicios.length;
+    document.getElementById('dificultadActual').innerHTML = `${completados}/${total} completados`;
+}
+
+function actualizarEstadisticas() {
+    if (!ejerciciosData) return;
+    
+    let totalCompletados = 0;
+    let totalEjercicios = 0;
+    
+    ejerciciosData.categorias.forEach(categoria => {
+        totalEjercicios += categoria.ejercicios.length;
+        const completados = progreso[categoria.id] ? Object.keys(progreso[categoria.id]).length : 0;
+        totalCompletados += completados;
+    });
+    
+    const porcentaje = totalEjercicios > 0 ? (totalCompletados / totalEjercicios * 100).toFixed(0) : 0;
+    document.getElementById('progresoGeneral').style.width = `${porcentaje}%`;
+    document.getElementById('progresoGeneral').textContent = `${porcentaje}%`;
+    document.getElementById('statsEjercicios').textContent = `Ejercicios completados: ${totalCompletados}/${totalEjercicios}`;
+}
+
+function mostrarFeedback(mensaje, tipo) {
+    const modalHtml = `
+        <div class="modal fade" id="feedbackModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">${tipo === 'success' ? '¡Correcto!' : 'Resultado'}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-${tipo}">${mensaje}</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    const modalContainer = document.createElement('div');
+    modalContainer.innerHTML = modalHtml;
+    document.body.appendChild(modalContainer);
+    const modal = new bootstrap.Modal(modalContainer.querySelector('.modal'));
+    modal.show();
+    modalContainer.addEventListener('hidden.bs.modal', () => modalContainer.remove());
+}
+</script>
+{% endblock %}

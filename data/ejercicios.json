@@ -1,0 +1,781 @@
+{
+  "categorias": [
+    {
+      "id": 1,
+      "nombre": "Presente Histórico",
+      "descripcion": "Ejercicios para practicar la conversión de eventos pasados a presente histórico",
+      "ejercicios": [
+        {
+          "id": 1,
+          "pregunta": "Colón llegó a América en 1492.",
+          "respuesta_correcta": "Colón llega a América en 1492.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 2,
+          "pregunta": "Los romanos construyeron el Coliseo en el año 80 d.C.",
+          "respuesta_correcta": "Los romanos construyen el Coliseo en el año 80 d.C.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 3,
+          "pregunta": "Miguel Hidalgo dio el Grito de Independencia en 1810.",
+          "respuesta_correcta": "Miguel Hidalgo da el Grito de Independencia en 1810.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 4,
+          "pregunta": "Napoleón Bonaparte perdió la batalla de Waterloo en 1815.",
+          "respuesta_correcta": "Napoleón Bonaparte pierde la batalla de Waterloo en 1815.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 5,
+          "pregunta": "Los mayas desarrollaron un avanzado sistema de escritura.",
+          "respuesta_correcta": "Los mayas desarrollan un avanzado sistema de escritura.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 6,
+          "pregunta": "La Revolución Francesa comenzó en 1789 con la toma de la Bastilla.",
+          "respuesta_correcta": "La Revolución Francesa comienza en 1789 con la toma de la Bastilla.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 7,
+          "pregunta": "Einstein publicó la teoría de la relatividad en 1905.",
+          "respuesta_correcta": "Einstein publica la teoría de la relatividad en 1905.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 8,
+          "pregunta": "Neil Armstrong pisó la Luna el 20 de julio de 1969.",
+          "respuesta_correcta": "Neil Armstrong pisa la Luna el 20 de julio de 1969.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 9,
+          "pregunta": "Frida Kahlo pintó 'Las dos Fridas' en 1939.",
+          "respuesta_correcta": "Frida Kahlo pinta 'Las dos Fridas' en 1939.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 10,
+          "pregunta": "Cervantes escribió El Quijote a principios del siglo XVII.",
+          "respuesta_correcta": "Cervantes escribe El Quijote a principios del siglo XVII.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 11,
+          "pregunta": "Los aztecas fundaron Tenochtitlán en 1325.",
+          "respuesta_correcta": "Los aztecas fundan Tenochtitlán en 1325.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 12,
+          "pregunta": "Darwin publicó 'El origen de las especies' en 1859.",
+          "respuesta_correcta": "Darwin publica 'El origen de las especies' en 1859.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 13,
+          "pregunta": "La Segunda Guerra Mundial terminó en 1945.",
+          "respuesta_correcta": "La Segunda Guerra Mundial termina en 1945.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 14,
+          "pregunta": "Gandhi lideró el movimiento de independencia de la India.",
+          "respuesta_correcta": "Gandhi lidera el movimiento de independencia de la India.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 15,
+          "pregunta": "La caída del Muro de Berlín ocurrió en 1989.",
+          "respuesta_correcta": "La caída del Muro de Berlín ocurre en 1989.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 16,
+          "pregunta": "Steve Jobs fundó Apple en 1976.",
+          "respuesta_correcta": "Steve Jobs funda Apple en 1976.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 17,
+          "pregunta": "Los incas construyeron Machu Picchu en el siglo XV.",
+          "respuesta_correcta": "Los incas construyen Machu Picchu en el siglo XV.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 18,
+          "pregunta": "Galileo Galilei demostró que la Tierra gira alrededor del Sol.",
+          "respuesta_correcta": "Galileo Galilei demuestra que la Tierra gira alrededor del Sol.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 19,
+          "pregunta": "La primera vuelta al mundo la completó Magallanes y Elcano.",
+          "respuesta_correcta": "La primera vuelta al mundo la completan Magallanes y Elcano.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "difícil"
+        },
+        {
+          "id": 20,
+          "pregunta": "Pablo Picasso creó el cubismo a principios del siglo XX.",
+          "respuesta_correcta": "Pablo Picasso crea el cubismo a principios del siglo XX.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nombre": "Presente por Futuro",
+      "descripcion": "Ejercicios para convertir expresiones de futuro a presente histórico",
+      "ejercicios": [
+        {
+          "id": 21,
+          "pregunta": "Mañana visitaré el museo.",
+          "respuesta_correcta": "Mañana visito el museo.",
+          "tipo": "futuro_a_historico",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 22,
+          "pregunta": "La próxima semana comenzaré el curso de idiomas.",
+          "respuesta_correcta": "La próxima semana comienzo el curso de idiomas.",
+          "tipo": "futuro_a_historico",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 23,
+          "pregunta": "Esta noche cenaremos en un restaurante italiano.",
+          "respuesta_correcta": "Esta noche cenamos en un restaurante italiano.",
+          "tipo": "futuro_a_historico",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 24,
+          "pregunta": "El próximo año me graduaré de la universidad.",
+          "respuesta_correcta": "El próximo año me gradúo de la universidad.",
+          "tipo": "futuro_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 25,
+          "pregunta": "En diciembre compraremos la casa nueva.",
+          "respuesta_correcta": "En diciembre compramos la casa nueva.",
+          "tipo": "futuro_a_historico",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 26,
+          "pregunta": "Te llamaré después de la reunión.",
+          "respuesta_correcta": "Te llamo después de la reunión.",
+          "tipo": "futuro_a_historico",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 27,
+          "pregunta": "El viernes entregaré el proyecto final.",
+          "respuesta_correcta": "El viernes entrego el proyecto final.",
+          "tipo": "futuro_a_historico",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 28,
+          "pregunta": "El mes que viene empezaré a hacer ejercicio.",
+          "respuesta_correcta": "El mes que viene empiezo a hacer ejercicio.",
+          "tipo": "futuro_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 29,
+          "pregunta": "Mañana viajaré a Buenos Aires por trabajo.",
+          "respuesta_correcta": "Mañana viajo a Buenos Aires por trabajo.",
+          "tipo": "futuro_a_historico",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 30,
+          "pregunta": "La empresa lanzará el nuevo producto en primavera.",
+          "respuesta_correcta": "La empresa lanza el nuevo producto en primavera.",
+          "tipo": "futuro_a_historico",
+          "dificultad": "media"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nombre": "Presente Habitual",
+      "descripcion": "Identifica y practica expresiones que describen hábitos y rutinas",
+      "ejercicios": [
+        {
+          "id": 31,
+          "pregunta": "Yo (practicar) yoga todos los martes.",
+          "respuesta_correcta": "Yo practico yoga todos los martes.",
+          "tipo": "completar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 32,
+          "pregunta": "Mi abuela (preparar) café todas las mañanas.",
+          "respuesta_correcta": "Mi abuela prepara café todas las mañanas.",
+          "tipo": "completar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 33,
+          "pregunta": "Los pájaros (migrar) al sur cada invierno.",
+          "respuesta_correcta": "Los pájaros migran al sur cada invierno.",
+          "tipo": "completar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 34,
+          "pregunta": "Siempre (desayunar) pan integral con mermelada.",
+          "respuesta_correcta": "Siempre desayuno pan integral con mermelada.",
+          "tipo": "completar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 35,
+          "pregunta": "Los estudiantes (presentar) exámenes cada diciembre.",
+          "respuesta_correcta": "Los estudiantes presentan exámenes cada diciembre.",
+          "tipo": "completar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 36,
+          "pregunta": "El periódico (llegar) a las 7:00 de la mañana.",
+          "respuesta_correcta": "El periódico llega a las 7:00 de la mañana.",
+          "tipo": "completar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 37,
+          "pregunta": "Nunca (ver) televisión por la mañana.",
+          "respuesta_correcta": "Nunca veo televisión por la mañana.",
+          "tipo": "completar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 38,
+          "pregunta": "El tren (salir) puntual todos los días.",
+          "respuesta_correcta": "El tren sale puntual todos los días.",
+          "tipo": "completar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 39,
+          "pregunta": "Mis hermanos (jugar) fútbol los sábados.",
+          "respuesta_correcta": "Mis hermanos juegan fútbol los sábados.",
+          "tipo": "completar",
+          "dificultad": "media"
+        },
+        {
+          "id": 40,
+          "pregunta": "Normalmente (cenar) a las 8:00 de la noche.",
+          "respuesta_correcta": "Normalmente ceno a las 8:00 de la noche.",
+          "tipo": "completar",
+          "dificultad": "fácil"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "nombre": "Presente Actual",
+      "descripcion": "Ejercicios para describir acciones que ocurren en el momento",
+      "ejercicios": [
+        {
+          "id": 41,
+          "pregunta": "Ahora mismo (escribir) una carta de amor.",
+          "respuesta_correcta": "Ahora mismo escribo una carta de amor.",
+          "tipo": "completar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 42,
+          "pregunta": "El bebé (dormir) profundamente en este momento.",
+          "respuesta_correcta": "El bebé duerme profundamente en este momento.",
+          "tipo": "completar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 43,
+          "pregunta": "¿Qué (hacer) ahora?",
+          "respuesta_correcta": "¿Qué haces ahora?",
+          "tipo": "completar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 44,
+          "pregunta": "Mientras hablamos, el sol (ocultarse).",
+          "respuesta_correcta": "Mientras hablamos, el sol se oculta.",
+          "tipo": "completar",
+          "dificultad": "media"
+        },
+        {
+          "id": 45,
+          "pregunta": "En este momento (firmar) el contrato.",
+          "respuesta_correcta": "En este momento firmo el contrato.",
+          "tipo": "completar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 46,
+          "pregunta": "Los niños (jugar) en el parque ahora.",
+          "respuesta_correcta": "Los niños juegan en el parque ahora.",
+          "tipo": "completar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 47,
+          "pregunta": "El chef (preparar) la cena en este instante.",
+          "respuesta_correcta": "El chef prepara la cena en este instante.",
+          "tipo": "completar",
+          "dificultad": "media"
+        },
+        {
+          "id": 48,
+          "pregunta": "(Escuchar) música mientras trabajo.",
+          "respuesta_correcta": "Escucho música mientras trabajo.",
+          "tipo": "completar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 49,
+          "pregunta": "Ahora mismo (leer) un libro muy interesante.",
+          "respuesta_correcta": "Ahora mismo leo un libro muy interesante.",
+          "tipo": "completar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 50,
+          "pregunta": "El médico (revisar) los resultados ahora.",
+          "respuesta_correcta": "El médico revisa los resultados ahora.",
+          "tipo": "completar",
+          "dificultad": "fácil"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "nombre": "Identificación de Categorías",
+      "descripcion": "Identifica qué tipo de presente verbal se está utilizando",
+      "ejercicios": [
+        {
+          "id": 51,
+          "pregunta": "Siempre desayuno café con leche.",
+          "respuesta_correcta": "Presente Habitual",
+          "tipo": "identificar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 52,
+          "pregunta": "Cervantes escribe El Quijote en 1605.",
+          "respuesta_correcta": "Presente Histórico",
+          "tipo": "identificar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 53,
+          "pregunta": "Mañana viajo a París.",
+          "respuesta_correcta": "Presente por Futuro",
+          "tipo": "identificar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 54,
+          "pregunta": "Ahora mismo escucho música.",
+          "respuesta_correcta": "Presente Actual",
+          "tipo": "identificar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 55,
+          "pregunta": "La Tierra gira alrededor del Sol.",
+          "respuesta_correcta": "Presente Noómico",
+          "tipo": "identificar",
+          "dificultad": "media"
+        },
+        {
+          "id": 56,
+          "pregunta": "Colón descubre América en 1492.",
+          "respuesta_correcta": "Presente Histórico",
+          "tipo": "identificar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 57,
+          "pregunta": "Los trenes salen cada hora.",
+          "respuesta_correcta": "Presente Habitual",
+          "tipo": "identificar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 58,
+          "pregunta": "Esta noche cenamos con mis padres.",
+          "respuesta_correcta": "Presente por Futuro",
+          "tipo": "identificar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 59,
+          "pregunta": "El agua hierve a 100 grados Celsius.",
+          "respuesta_correcta": "Presente Noómico",
+          "tipo": "identificar",
+          "dificultad": "media"
+        },
+        {
+          "id": 60,
+          "pregunta": "En este momento, el presidente firma la ley.",
+          "respuesta_correcta": "Presente Actual",
+          "tipo": "identificar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 61,
+          "pregunta": "Primero me deja Luis, luego me abandona Jaime.",
+          "respuesta_correcta": "Presente Histórico",
+          "tipo": "identificar",
+          "dificultad": "media"
+        },
+        {
+          "id": 62,
+          "pregunta": "Nunca como carne roja.",
+          "respuesta_correcta": "Presente Habitual",
+          "tipo": "identificar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 63,
+          "pregunta": "El próximo año publico mi libro.",
+          "respuesta_correcta": "Presente por Futuro",
+          "tipo": "identificar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 64,
+          "pregunta": "Los pájaros cantan en el jardín.",
+          "respuesta_correcta": "Presente Actual",
+          "tipo": "identificar",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 65,
+          "pregunta": "El que madruga, Dios lo ayuda.",
+          "respuesta_correcta": "Presente Noómico",
+          "tipo": "identificar",
+          "dificultad": "media"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "nombre": "Conversión a Presente Histórico (Avanzado)",
+      "descripcion": "Convierte textos más complejos al presente histórico",
+      "ejercicios": [
+        {
+          "id": 66,
+          "pregunta": "En 1519, Hernán Cortés desembarcó en Veracruz y comenzó la conquista de México.",
+          "respuesta_correcta": "En 1519, Hernán Cortés desembarca en Veracruz y comienza la conquista de México.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "difícil"
+        },
+        {
+          "id": 67,
+          "pregunta": "Simón Bolívar luchó por la independencia de varios países sudamericanos y fue conocido como El Libertador.",
+          "respuesta_correcta": "Simón Bolívar lucha por la independencia de varios países sudamericanos y es conocido como El Libertador.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "difícil"
+        },
+        {
+          "id": 68,
+          "pregunta": "Marie Curie descubrió el radio y recibió dos Premios Nobel.",
+          "respuesta_correcta": "Marie Curie descubre el radio y recibe dos Premios Nobel.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 69,
+          "pregunta": "La Revolución Mexicana estalló en 1910 y transformó la estructura social del país.",
+          "respuesta_correcta": "La Revolución Mexicana estalla en 1910 y transforma la estructura social del país.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "difícil"
+        },
+        {
+          "id": 70,
+          "pregunta": "William Shakespeare escribió 37 obras de teatro y fundó el Globe Theatre.",
+          "respuesta_correcta": "William Shakespeare escribe 37 obras de teatro y funda el Globe Theatre.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 71,
+          "pregunta": "Los españoles introdujeron el caballo en América durante la conquista.",
+          "respuesta_correcta": "Los españoles introducen el caballo en América durante la conquista.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 72,
+          "pregunta": "La imprenta fue inventada por Gutenberg en 1440 y revolucionó la comunicación.",
+          "respuesta_correcta": "La imprenta es inventada por Gutenberg en 1440 y revoluciona la comunicación.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "difícil"
+        },
+        {
+          "id": 73,
+          "pregunta": "Federico García Lorca escribió 'La casa de Bernarda Alba' antes de ser fusilado en 1936.",
+          "respuesta_correcta": "Federico García Lorca escribe 'La casa de Bernarda Alba' antes de ser fusilado en 1936.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "difícil"
+        },
+        {
+          "id": 74,
+          "pregunta": "Los primeros Juegos Olímpicos modernos se celebraron en Atenas en 1896.",
+          "respuesta_correcta": "Los primeros Juegos Olímpicos modernos se celebran en Atenas en 1896.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 75,
+          "pregunta": "Leonardo da Vinci pintó la Mona Lisa y diseñó innovadoras máquinas voladoras.",
+          "respuesta_correcta": "Leonardo da Vinci pinta la Mona Lisa y diseña innovadoras máquinas voladoras.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "nombre": "Narrativa Personal con Presente Histórico",
+      "descripcion": "Practica la narración de experiencias personales usando presente histórico",
+      "ejercicios": [
+        {
+          "id": 76,
+          "pregunta": "Ayer me encontré con un amigo que no veía hace años.",
+          "respuesta_correcta": "Ayer me encuentro con un amigo que no veía hace años.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 77,
+          "pregunta": "Cuando era niño, visitaba a mis abuelos cada verano.",
+          "respuesta_correcta": "Cuando era niño, visito a mis abuelos cada verano.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "difícil"
+        },
+        {
+          "id": 78,
+          "pregunta": "El año pasado, viajé a Japón y conocí Tokio y Kioto.",
+          "respuesta_correcta": "El año pasado, viajo a Japón y conozco Tokio y Kioto.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 79,
+          "pregunta": "En mi primer día de universidad, me sentí nervioso pero emocionado.",
+          "respuesta_correcta": "En mi primer día de universidad, me siento nervioso pero emocionado.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "difícil"
+        },
+        {
+          "id": 80,
+          "pregunta": "Recuerdo que en 2010, gané un concurso de escritura.",
+          "respuesta_correcta": "Recuerdo que en 2010, gano un concurso de escritura.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 81,
+          "pregunta": "Cuando me mudé a esta ciudad, no conocía a nadie.",
+          "respuesta_correcta": "Cuando me mudo a esta ciudad, no conozco a nadie.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 82,
+          "pregunta": "Aprendí a tocar guitarra cuando tenía quince años.",
+          "respuesta_correcta": "Aprendo a tocar guitarra cuando tenía quince años.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        },
+        {
+          "id": 83,
+          "pregunta": "En mi última entrevista de trabajo, respondí todas las preguntas con seguridad.",
+          "respuesta_correcta": "En mi última entrevista de trabajo, respondo todas las preguntas con seguridad.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "difícil"
+        },
+        {
+          "id": 84,
+          "pregunta": "Cuando conocí a mi pareja, supe que era la persona indicada.",
+          "respuesta_correcta": "Cuando conozco a mi pareja, sé que es la persona indicada.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "difícil"
+        },
+        {
+          "id": 85,
+          "pregunta": "El verano pasado, escalé una montaña por primera vez.",
+          "respuesta_correcta": "El verano pasado, escalo una montaña por primera vez.",
+          "tipo": "pasado_a_historico",
+          "dificultad": "media"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "nombre": "Ejercicios Mixtos",
+      "descripcion": "Combina diferentes tipos de presente en un solo ejercicio",
+      "ejercicios": [
+        {
+          "id": 86,
+          "pregunta": "Normalmente (levantarse) a las 7:00, pero hoy (dormir) más porque es domingo.",
+          "respuesta_correcta": "Normalmente me levanto a las 7:00, pero hoy duermo más porque es domingo.",
+          "tipo": "completar",
+          "dificultad": "media"
+        },
+        {
+          "id": 87,
+          "pregunta": "En 1492, Colón (llegar) a América, y ahora (celebrarse) ese descubrimiento cada año.",
+          "respuesta_correcta": "En 1492, Colón llega a América, y ahora se celebra ese descubrimiento cada año.",
+          "tipo": "completar",
+          "dificultad": "difícil"
+        },
+        {
+          "id": 88,
+          "pregunta": "Mañana (viajar) a Londres, mientras que mi hermano siempre (preferir) quedarse en casa.",
+          "respuesta_correcta": "Mañana viajo a Londres, mientras que mi hermano siempre prefiere quedarse en casa.",
+          "tipo": "completar",
+          "dificultad": "difícil"
+        },
+        {
+          "id": 89,
+          "pregunta": "Ahora mismo (leer) un libro sobre cómo los mayas (construir) sus pirámides.",
+          "respuesta_correcta": "Ahora mismo leo un libro sobre cómo los mayas construyen sus pirámides.",
+          "tipo": "completar",
+          "dificultad": "difícil"
+        },
+        {
+          "id": 90,
+          "pregunta": "El agua (hervir) a 100°C, pero en la montaña (hervir) a menor temperatura.",
+          "respuesta_correcta": "El agua hierve a 100°C, pero en la montaña hierve a menor temperatura.",
+          "tipo": "completar",
+          "dificultad": "difícil"
+        },
+        {
+          "id": 91,
+          "pregunta": "Cada diciembre, mi familia (reunirse) para celebrar, pero este año no (poder) hacerlo.",
+          "respuesta_correcta": "Cada diciembre, mi familia se reúne para celebrar, pero este año no puede hacerlo.",
+          "tipo": "completar",
+          "dificultad": "media"
+        },
+        {
+          "id": 92,
+          "pregunta": "El próximo mes (inaugurar) el nuevo museo, que (contener) piezas históricas invaluables.",
+          "respuesta_correcta": "El próximo mes inauguran el nuevo museo, que contiene piezas históricas invaluables.",
+          "tipo": "completar",
+          "dificultad": "difícil"
+        },
+        {
+          "id": 93,
+          "pregunta": "Siempre (comer) en ese restaurante, pero hoy (probar) uno nuevo.",
+          "respuesta_correcta": "Siempre como en ese restaurante, pero hoy pruebo uno nuevo.",
+          "tipo": "completar",
+          "dificultad": "media"
+        },
+        {
+          "id": 94,
+          "pregunta": "En este momento, el científico (presentar) su teoría sobre cómo (formarse) el universo.",
+          "respuesta_correcta": "En este momento, el científico presenta su teoría sobre cómo se forma el universo.",
+          "tipo": "completar",
+          "dificultad": "difícil"
+        },
+        {
+          "id": 95,
+          "pregunta": "La próxima semana (terminar) mi tesis, que (ser) el resultado de tres años de investigación.",
+          "respuesta_correcta": "La próxima semana termino mi tesis, que es el resultado de tres años de investigación.",
+          "tipo": "completar",
+          "dificultad": "difícil"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "nombre": "Ejercicios de Traducción Contextual",
+      "descripcion": "Traduce oraciones al español usando el presente adecuado según el contexto",
+      "ejercicios": [
+        {
+          "id": 96,
+          "pregunta": "The sun rises in the east every morning.",
+          "respuesta_correcta": "El sol sale por el este todas las mañanas.",
+          "tipo": "traduccion",
+          "dificultad": "media"
+        },
+        {
+          "id": 97,
+          "pregunta": "Columbus discovers America in 1492.",
+          "respuesta_correcta": "Colón descubre América en 1492.",
+          "tipo": "traduccion",
+          "dificultad": "media"
+        },
+        {
+          "id": 98,
+          "pregunta": "Tomorrow I start my new job.",
+          "respuesta_correcta": "Mañana empiezo mi nuevo trabajo.",
+          "tipo": "traduccion",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 99,
+          "pregunta": "Right now I am writing an important email.",
+          "respuesta_correcta": "Ahora mismo escribo un correo importante.",
+          "tipo": "traduccion",
+          "dificultad": "fácil"
+        },
+        {
+          "id": 100,
+          "pregunta": "Water boils at 100 degrees Celsius at sea level.",
+          "respuesta_correcta": "El agua hierve a 100 grados Celsius a nivel del mar.",
+          "tipo": "traduccion",
+          "dificultad": "media"
+        }
+      ]
+    }
+  ],
+  "estadisticas": {
+    "total_ejercicios": 100,
+    "por_categoria": {
+      "Presente Histórico": 20,
+      "Presente por Futuro": 10,
+      "Presente Habitual": 10,
+      "Presente Actual": 10,
+      "Identificación de Categorías": 15,
+      "Conversión a Presente Histórico (Avanzado)": 10,
+      "Narrativa Personal": 10,
+      "Ejercicios Mixtos": 10,
+      "Traducción Contextual": 5
+    }
+  }
+}

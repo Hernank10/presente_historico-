@@ -1,0 +1,176 @@
+/* ============================================
+   EJERCICIOS.CSS - Estilos para ejercicios
+   ============================================ */
+
+/* Lista de categorías */
+.categoria-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.categoria-item {
+    padding: var(--spacing-md);
+    border-left: 3px solid transparent;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.categoria-item:hover {
+    background-color: var(--bg-light);
+    border-left-color: var(--secondary-color);
+}
+
+.categoria-item.active {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-left-color: var(--secondary-color);
+}
+
+.categoria-name {
+    font-weight: 500;
+}
+
+.categoria-count {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background-color: var(--bg-light);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--border-radius-xl);
+}
+
+/* Progreso de categoría */
+.categoria-progress {
+    width: 60px;
+    height: 4px;
+    background-color: var(--bg-light);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.categoria-progress-bar {
+    height: 100%;
+    background-color: var(--success-color);
+    transition: width var(--transition-normal);
+}
+
+/* Área de ejercicio */
+.ejercicio-area {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.ejercicio-pregunta {
+    background-color: var(--bg-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.1rem;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.ejercicio-respuesta {
+    margin-top: var(--spacing-lg);
+}
+
+.ejercicio-respuesta textarea,
+.ejercicio-respuesta input,
+.ejercicio-respuesta select {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 2px solid #e0e0e0;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-fast);
+    font-size: 1rem;
+}
+
+.ejercicio-respuesta textarea:focus,
+.ejercicio-respuesta input:focus,
+.ejercicio-respuesta select:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Botones de navegación */
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--spacing-lg);
+}
+
+/* Feedback de respuesta */
+.feedback-correct {
+    background-color: rgba(39, 174, 96, 0.1);
+    border-left: 4px solid var(--success-color);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    margin-top: var(--spacing-md);
+}
+
+.feedback-incorrect {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-left: 4px solid var(--danger-color);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    margin-top: var(--spacing-md);
+}
+
+/* Barra de progreso general */
+.progress-general {
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius-xl);
+    height: 10px;
+    overflow: hidden;
+}
+
+.progress-general-bar {
+    background: linear-gradient(90deg, var(--secondary-color), var(--success-color));
+    height: 100%;
+    transition: width var(--transition-normal);
+    border-radius: var(--border-radius-xl);
+}
+
+/* Animaciones */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.3s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.bounce {
+    animation: bounce 0.3s ease-in-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .categoria-list {
+        max-height: 300px;
+    }
+    
+    .ejercicio-pregunta {
+        font-size: 1rem;
+        padding: var(--spacing-md);
+    }
+    
+    .nav-buttons {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .nav-buttons button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,169 @@
+/* ============================================
+   CARDS.CSS - Estilos para tarjetas y features
+   ============================================ */
+
+/* Feature Cards */
+.feature-card {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    text-align: center;
+    height: 100%;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    transform: scaleX(0);
+    transition: transform var(--transition-normal);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-lg);
+    transition: transform var(--transition-normal);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+}
+
+.feature-card p {
+    color: var(--text-light);
+    margin-bottom: var(--spacing-lg);
+}
+
+.feature-card .btn-outline-primary {
+    margin-top: auto;
+}
+
+/* Cards de contenido */
+.content-card {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.content-card-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-white);
+    padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.content-card-body {
+    padding: var(--spacing-lg);
+}
+
+.content-card-footer {
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: var(--bg-light);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Cards de ejemplo */
+.example-card {
+    background-color: var(--bg-white);
+    border-left: 4px solid var(--secondary-color);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-fast);
+}
+
+.example-card:hover {
+    background-color: var(--bg-light);
+    transform: translateX(5px);
+}
+
+.example-card h5 {
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1rem;
+}
+
+.example-card p {
+    margin-bottom: 0;
+}
+
+/* Cards de estadísticas */
+.stats-card {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-white);
+    text-align: center;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+}
+
+.stats-card i {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.stats-card h3 {
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
+.stats-card p {
+    margin-bottom: 0;
+    opacity: 0.9;
+}
+
+/* Grid de cards */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .feature-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .feature-icon {
+        font-size: 2.5rem;
+    }
+    
+    .feature-card h3 {
+        font-size: 1.25rem;
+    }
+    
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+}

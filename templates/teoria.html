@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}Teoría - Presente Histórico{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="section-title">Teoría del Presente Histórico</h1>
+    
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3><i class="bi bi-lightbulb text-primary"></i> ¿Qué es?</h3>
+                    <p>El presente histórico es un recurso lingüístico que utiliza el tiempo presente para narrar hechos pasados, con el objetivo de darles mayor viveza y actualidad. Permite que el lector o interlocutor sienta los eventos como si estuvieran ocurriendo en el momento.</p>
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3><i class="bi bi-book text-primary"></i> Características principales</h3>
+                    <ul>
+                        <li>Se usa para eventos históricos importantes</li>
+                        <li>Da sensación de inmediatez y dramatismo</li>
+                        <li>Es común en textos periodísticos y narrativos</li>
+                        <li>Permite al lector "vivir" los eventos</li>
+                        <li>Acerca el pasado al presente del interlocutor</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3><i class="bi bi-chat-quote text-primary"></i> Ejemplos prácticos</h3>
+                    
+                    <div class="alert alert-secondary mb-3">
+                        <h5>Pasado simple → Presente histórico</h5>
+                        <p class="mb-1"><strong>Pasado:</strong> "Colón <em>llegó</em> a América en 1492"</p>
+                        <p class="mb-0"><strong>Presente histórico:</strong> "Colón <em>llega</em> a América en 1492"</p>
+                    </div>
+                    
+                    <div class="alert alert-secondary mb-3">
+                        <h5>Futuro → Presente histórico</h5>
+                        <p class="mb-1"><strong>Futuro:</strong> "El equipo <em>ganará</em> el campeonato mañana"</p>
+                        <p class="mb-0"><strong>Presente histórico:</strong> "El equipo <em>gana</em> el campeonato mañana"</p>
+                    </div>
+                    
+                    <div class="alert alert-secondary">
+                        <h5>Narración personal</h5>
+                        <p class="mb-0">"Primero me <em>deja</em> Luis, luego me <em>abandona</em> Jaime en 2012"</p>
+                        <small class="text-muted">Aquí el hablante revive sus experiencias pasadas como si estuvieran ocurriendo ahora.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3><i class="bi bi-grid-3x3-gap-fill text-primary"></i> Usos específicos</h3>
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <div class="card h-100 bg-light">
+                                <div class="card-body">
+                                    <h6>Presente Habitual</h6>
+                                    <p class="small">Acciones que ocurren regularmente</p>
+                                    <code class="small">Practico yoga todos los martes</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="card h-100 bg-light">
+                                <div class="card-body">
+                                    <h6>Presente Actual</h6>
+                                    <p class="small">Acciones en curso</p>
+                                    <code class="small">Ahora escribo un ensayo</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="card h-100 bg-light">
+                                <div class="card-body">
+                                    <h6>Presente Noómico</h6>
+                                    <p class="small">Verdades universales</p>
+                                    <code class="small">El agua hierve a 100°C</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="card h-100 bg-light">
+                                <div class="card-body">
+                                    <h6>Presente por Futuro</h6>
+                                    <p class="small">Planes decididos</p>
+                                    <code class="small">Mañana viajo a Madrid</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="text-center mt-4">
+        <a href="{{ url_for('clasificador') }}" class="btn btn-primary btn-lg">
+            <i class="bi bi-search"></i> Practicar con el clasificador
+        </a>
+    </div>
+</div>
+{% endblock %}

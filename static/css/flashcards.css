@@ -1,0 +1,166 @@
+/* ============================================
+   FLASHCARDS.CSS - Estilos para flashcards
+   ============================================ */
+
+.flashcard-container {
+    perspective: 1000px;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flashcard {
+    width: 100%;
+    max-width: 600px;
+    height: 380px;
+    cursor: pointer;
+    position: relative;
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.flashcard-front {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--text-white);
+}
+
+.flashcard-back {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: var(--text-white);
+    transform: rotateY(180deg);
+}
+
+.flashcard-content {
+    padding: var(--spacing-xl);
+    overflow-y: auto;
+    max-height: 100%;
+    width: 100%;
+}
+
+.flashcard-front .flashcard-content {
+    color: var(--text-white);
+}
+
+.flashcard-back .flashcard-content {
+    color: var(--text-white);
+}
+
+.flashcard-back .alert {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--text-dark);
+    border: none;
+    border-radius: var(--border-radius-md);
+    margin-top: var(--spacing-md);
+    text-align: left;
+}
+
+.flashcard h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.flashcard h4 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Animaciones de entrada */
+@keyframes cardEnter {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.flashcard {
+    animation: cardEnter 0.4s ease-out;
+}
+
+/* Filtros y controles */
+.filter-section {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.filter-section h5 {
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+}
+
+/* Estadísticas de flashcards */
+.flashcard-stats {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+    color: var(--text-white);
+    text-align: center;
+}
+
+.flashcard-stats .stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .flashcard {
+        height: 320px;
+    }
+    
+    .flashcard-content {
+        padding: var(--spacing-md);
+    }
+    
+    .flashcard h3 {
+        font-size: 1.2rem;
+    }
+    
+    .flashcard h4 {
+        font-size: 1rem;
+    }
+}
+
+/* Animación de pulsación para botones */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.btn-pulse {
+    animation: pulse 0.3s ease-in-out;
+}
